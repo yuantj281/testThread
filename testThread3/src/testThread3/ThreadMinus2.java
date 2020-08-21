@@ -6,6 +6,8 @@ public class ThreadMinus2 extends Ticket implements Runnable {
 	@Override
 	public void run() {
 		while(true) {
+			synchronized (this) {
+		
 			if(ticket<=0) {
 				break;
 			}else {
@@ -17,6 +19,7 @@ public class ThreadMinus2 extends Ticket implements Runnable {
 				ticket-=2;
 				System.out.println("窗口："+Thread.currentThread().getName()+":"+ticket);
 			}
+		}
 		}
 	}
 
